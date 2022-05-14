@@ -1,14 +1,15 @@
 
 import React from 'react';
-import Wheel from './Wheel'
-import BasicForm from './BasicForm'
+import BasicForm from './BasicForm';
+import EndPage from './EndPage';
 import {useState} from 'react';
+import callAPI from './callAPI.js';
 
 
 const App = () => {
     var [startGame, setStartGame] = useState(false);
     var [Values, setValues] = useState({
-        business: '',
+        name: '',
         email: ''
       });
 
@@ -20,11 +21,12 @@ const App = () => {
             </div>
         );
     } else {
-        console.log((Values))
+        callAPI("antikboden","","","","","","","","","",Values.name,Values.email,"","","","","","","","")
+        console.log(Values.name,Values.email);
         return (
-        
+            
             <div>
-                <Wheel submitValues = {Values}/>
+                <EndPage/>
             </div>
         );
 
